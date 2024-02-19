@@ -4,6 +4,7 @@
   "description": "Creating RESTful API using Node.js and express",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon ./server.js ---exec babel-node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Menson Sundash",
