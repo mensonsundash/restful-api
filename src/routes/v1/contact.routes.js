@@ -1,5 +1,7 @@
 const app = require("express").Router();
 
+const { addNewContact } = require('../../controllers/contact.controller')
+
 app.get( '/', (req,res, next) => {
     // middleware
     console.log(`Request from: ${req.originalUrl}`)
@@ -10,9 +12,7 @@ app.get( '/', (req,res, next) => {
     }
 )
 
-app.post( '/', (req,res) => {
-    res.send('POST request Successfull')
-})
+app.post('/', addNewContact)
 
 app.put( '/:contactId', (req,res) => {
     res.send('PUT request Successfull')
