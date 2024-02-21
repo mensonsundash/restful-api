@@ -2,7 +2,7 @@
 # MEAN Stack RESTful API Project
 
 ## Overview
-This repository contains a RESTful API developed using the MEAN stack, an efficient and modern web development stack. The MEAN stack combines MongoDB, Express.js, Angular, and Node.js to create a full-stack application environment. Our focus here is on leveraging this stack for building a robust and scalable API.
+This repository contains a RESTful API developed using the MEAN stack, an efficient and modern web development stack. The MEAN stack combines MongoDB, Express.js, Angular, and Node.js to create a full-stack application environment. Our focus here is on leveraging this stack for building a robust and scalable RESTful API.
 
 ## Key Components
 
