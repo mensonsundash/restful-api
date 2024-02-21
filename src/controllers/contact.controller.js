@@ -1,7 +1,5 @@
-const mongoose = require('mongoose')
-const ContactSchema = require('../models/contact.model')
-
-const Contact = mongoose.model('Contact', ContactSchema);
+// const mongoose = require('mongoose')
+const{ contact: Contact} = require('../models');
 
 async function addNewContact(req, res) {
     let newContact = new Contact(req.body);
@@ -15,6 +13,16 @@ async function addNewContact(req, res) {
 
 }
 
+async function getContact(req, res) {
+    try{
+        const contact = await Contact.find();
+        res.json(contact);
+    }catch (err) {
+        res.status(500).send(err);
+    }
+}
+
 module.exports = {
-    addNewContact
+    addNewContact,
+    getContact
 }

@@ -1,8 +1,6 @@
-// import mongoose from "mongoose";
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
 
-const ContactSchema = new Schema({
+const Contact = new mongoose.Schema({
     firstName: {
         type: String,
         required: 'Enter a first name'
@@ -20,13 +18,19 @@ const ContactSchema = new Schema({
     phone: {
         type: Number
     },
-    created_date: {
-        type: Date,
-        default: Date.now
-    }
-    
 });
+// ,{
+//     collection: 'contact'
+// }
 
-// const Contact = mongoose.model('Contact', ContactSchema);
+Contact.statics.findById = function (id) {
+    return this.findOne({ _id: id });
+};
 
-module.exports = ContactSchema;
+Contact.statics.deleteById = function (id) {
+    return this.deleteOne({ _id: id });
+};
+
+// Contact = mongoose.model('contact', Contact);
+
+module.exports = Contact;
