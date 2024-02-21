@@ -22,7 +22,17 @@ async function getContact(req, res) {
     }
 }
 
+async function getContactById(req, res) {
+    try{
+        const contact = await Contact.findById(req.params.contactId);
+        res.json(contact);
+    }catch(err) {
+        res.status(500).send(err);
+    }
+}
+
 module.exports = {
     addNewContact,
-    getContact
+    getContact,
+    getContactById
 }

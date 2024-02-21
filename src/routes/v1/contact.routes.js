@@ -1,9 +1,10 @@
 const app = require("express").Router();
 
-const { addNewContact, getContact } = require('../../controllers/contact.controller')
+const { addNewContact, getContact, getContactById } = require('../../controllers/contact.controller')
 
-app.get( '/',getContact)
-app.post('/', addNewContact)
+app.get( '/', getContact);
+app.get('/:contactId', getContactById)
+app.post('/', addNewContact);
 app.put( '/:contactId', (req,res) => {
     res.send('PUT request Successfull')
 })
