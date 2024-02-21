@@ -1,15 +1,11 @@
 const app = require("express").Router();
 
-const { addNewContact, getContact, getContactById } = require('../../controllers/contact.controller')
+const { addNewContact, getContact, getContactById, updateContact, deleteContact } = require('../../controllers/contact.controller')
 
 app.get( '/', getContact);
 app.get('/:contactId', getContactById)
 app.post('/', addNewContact);
-app.put( '/:contactId', (req,res) => {
-    res.send('PUT request Successfull')
-})
-app.delete( '/:contactId', (req,res) => {
-    res.send('DELETE request Successfull')
-})
+app.put( '/:contactId', updateContact)
+app.delete( '/:contactId', deleteContact)
 
 module.exports = app;
