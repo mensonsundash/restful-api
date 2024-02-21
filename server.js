@@ -1,18 +1,23 @@
 const express = require("express");
 const routes = require('./src/routes/index');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
+// const dbConfig = require('./src/config/db.config');
 //Initialize express
 const app = express();
 
 const PORT = 3000;
 
 //mongoose connection
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://127.0.0.1:27017/myDatabase', { useNewUrlParser: true })
-    .then(() => console.log('MongoDB Connected'))
-    .catch(err => console.log(err));
+// mongoose.Promise = global.Promise;
+// mongoose.connect(
+//         `mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, 
+//         { useNewUrlParser: true, useUnifiedTopology: true}
+// )
+// .then(() => console.log('MongoDB Connected'))
+// .catch(err => console.log(err));
+
+require('./src/models'); // This will load your models
 
 //bodyparser setup
 app.use(bodyParser.urlencoded({ extended: true }))
