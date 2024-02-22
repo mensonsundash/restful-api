@@ -19,9 +19,6 @@ const Contact = new mongoose.Schema({
         type: Number
     },
 });
-// ,{
-//     collection: 'contact'
-// }
 
 Contact.statics.findById = function (id) {
     return this.findOne({ _id: id });
@@ -30,7 +27,5 @@ Contact.statics.findById = function (id) {
 Contact.statics.deleteById = function (id) {
     return this.deleteOne({ _id: id });
 };
-
-// Contact = mongoose.model('contact', Contact);
 
 module.exports = Contact;

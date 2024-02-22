@@ -5,6 +5,7 @@ app.get('/', (req, res) => {
 });
 
 //routes according to modules
+
 //contact module
 app.use("/contact", require("./contact.routes"));
 
