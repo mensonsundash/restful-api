@@ -6,22 +6,17 @@ const bodyParser = require('body-parser');
 //Initialize express
 const app = express();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-//mongoose connection
-// mongoose.Promise = global.Promise;
-// mongoose.connect(
-//         `mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, 
-//         { useNewUrlParser: true, useUnifiedTopology: true}
-// )
-// .then(() => console.log('MongoDB Connected'))
-// .catch(err => console.log(err));
-
-require('./src/models'); // This will load your models
+// This will load your models
+require('./src/models');
 
 //bodyparser setup
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+
+//serving static files
+app.use(express.static('resources/static/assets/images'))
 
 //routes
 app.use('/api', routes);

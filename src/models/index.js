@@ -7,10 +7,11 @@ const config = require('../config/db.config');
 
 // Connect to MongoDB
 mongoose.Promise = global.Promise;
-mongoose.connect(`mongodb://${config.HOST}:${config.PORT}/${config.DB}`, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-  // other options
+// mongoose.connect(`mongodb://${config.HOST}:${config.PORT}/${config.DB}`, {
+mongoose.connect(process.env.MONGO_URI, {
+    //   useNewUrlParser: true,
+    //   useUnifiedTopology: true,
+    // other options
 }).then(() => console.log('MongoDB Connected'))
 .catch(err => console.log(err));
 
