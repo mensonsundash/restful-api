@@ -1,4 +1,3 @@
-# restful-api
 # MEAN Stack RESTful API Project
 
 ## Overview
